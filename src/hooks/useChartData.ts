@@ -24,8 +24,6 @@ const useChartData = () => {
     fetchData();
   }, []);
 
-  console.log("useChartData rendered");
-
   return { date, data, locationFilters };
 };
 
