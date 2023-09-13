@@ -21,3 +21,8 @@ export interface ChartDataObject {
   [BAR_KEY]: number;
   [AREA_KEY]: number;
 }
+
+export interface ChartProps {
+  activeFilter: string;
+  setActiveFilter: React.Dispatch<React.SetStateAction<string>>;
+}
