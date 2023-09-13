@@ -1,11 +1,13 @@
-import styled from "styled-components";
-import ChartPage from "./pages/ChartPage";
+import { Outlet } from "react-router-dom";
+import { styled } from "styled-components";
 
 const App = () => {
   return (
     <>
       <Heading>시계열 차트</Heading>
-      <ChartPage />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 };
