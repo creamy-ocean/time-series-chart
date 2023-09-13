@@ -14,11 +14,7 @@ import {
 import styled from "styled-components";
 import dataApi from "../api/dataApi";
 import { AREA_KEY, BAR_KEY } from "../consts/consts";
-
-interface TooltipProps {
-  active: boolean;
-  payload: any;
-}
+import { ChartDataObject, TooltipProps } from "../types/types";
 
 const CustomTooltip = ({ active, payload }: TooltipProps) => {
   if (active && payload && payload.length) {
@@ -35,14 +31,7 @@ const CustomTooltip = ({ active, payload }: TooltipProps) => {
 
 const ChartPage = () => {
   const [date, setDate] = useState<string>();
-  const [data, setData] = useState<
-    Array<{
-      time: string;
-      id: string;
-      value_bar: number;
-      value_area: number;
-    }>
-  >();
+  const [data, setData] = useState<Array<ChartDataObject>>();
   const [locationFilters, setLocationFilters] = useState<Array<string>>([]);
   const [activeFilter, setActiveFilter] = useState<string>("");
 
