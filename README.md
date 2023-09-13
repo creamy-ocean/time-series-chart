@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Time Series Chart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 원티드 프리온보딩 4주차 과제
+> <br/>
 
-## Available Scripts
+## 프로젝트 소개
 
-In the project directory, you can run:
+주어진 데이터를 활용해 시계열 차트를 구현한 프로젝트
+<br/>
 
-### `npm start`
+## 실행 화면
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://github.com/creamy-ocean/time-series-chart/assets/93719660/5afce9f9-6463-4d1c-945b-8da1582b0ff5)
+<br/>
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 배포 링크 및 서버 주소
 
-### `npm test`
+- 배포 링크: https://co-time-series-chart.netlify.app
+  <br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 로컬 실행 방법
 
-### `npm run build`
+1. 본 repository를 clone 합니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ git clone https://github.com/creamy-ocean/time-series-chart
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. 의존성 패키지를 설치합니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+4. 개발 서버를 실행합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 구현 기능
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Recharts 라이브러리를 이용한 시계열 차트
+- 차트 하이라이트 기능
+  - 필터링 버튼을 클릭하면 동일한 값을 가진 차트만 하이라이트 되는 기능
+  - 차트 클릭 시 동일한 값을 가진 차트만 하이라이트 되는 기능
 
-## Learn More
+<br/>
+## 기술 스택
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div>
+  <img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=white">
+  <img src="https://img.shields.io/badge/typescript-3178C6?style=flat&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/styled components-DB7093?style=flat&logo=styledcomponents&logoColor=white">
+</div>
