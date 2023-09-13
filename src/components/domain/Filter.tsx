@@ -30,6 +30,8 @@ export default Filter;
 const FilterBox = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-right: 10rem;
+  margin-top: 3rem;
 `;
 
 const Button = styled.button`
