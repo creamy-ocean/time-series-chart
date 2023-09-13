@@ -3,6 +3,7 @@ import {
   Area,
   Bar,
   CartesianGrid,
+  Cell,
   ComposedChart,
   Legend,
   ResponsiveContainer,
@@ -12,8 +13,10 @@ import {
 } from "recharts";
 import styled from "styled-components";
 import dataApi from "../api/dataApi";
+import { AREA_KEY, BAR_KEY } from "../consts/consts";
 
 const ChartPage = () => {
+  const [date, setDate] = useState<string>();
   const [data, setData] = useState<
     Array<{
       time: string;
@@ -22,71 +25,105 @@ const ChartPage = () => {
       value_area: number;
     }>
   >();
+  const [locationFilters, setLocationFilters] = useState<Array<string>>([]);
+  const [activeFilter, setActiveFilter] = useState<string>("");
+
   const fetchData = async () => {
-    const rawData = await dataApi.getData();
+    const rawData = Object.entries(await dataApi.getData());
+
+    setDate(new Date(rawData[0][0]).toLocaleDateString());
     setData(
-      Object.entries(rawData).map(([time, location]) => ({
+      rawData.map(([time, data]) => ({
         time: new Date(time).toLocaleTimeString("it-IT", { hour12: false }),
-        ...location,
+        ...data,
       }))
     );
+    setLocationFilters([...new Set(rawData.map(([_, data]) => data.id))]);
   };
   fetchData();
 
   return (
-    <ChartContainer>
-      <ResponsiveContainer width="85%" height={600}>
-        <ComposedChart
-          width={400}
-          height={400}
-          data={data}
-          margin={{
-            top: 20,
-            right: 80,
-            bottom: 20,
-            left: 20,
-          }}
-        >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis
-            dataKey="time"
-            label={{ value: "Pages", position: "insideBottomRight", offset: 0 }}
-            scale="band"
-          />
-          <YAxis
-            yAxisId="area"
-            orientation="left"
-            label={{
-              value: "area",
-              angle: 0,
-              position: "insideLeft",
-              offset: -5,
+    <>
+      <div>
+        {locationFilters &&
+          locationFilters.map((locationFilter) => (
+            <button onClick={() => setActiveFilter(locationFilter)}>
+              {locationFilter}
+            </button>
+          ))}
+      </div>
+      <ChartContainer>
+        <ResponsiveContainer width="95%" height={600}>
+          <ComposedChart
+            width={400}
+            height={400}
+            data={data}
+            margin={{
+              top: 20,
+              right: 80,
+              bottom: 20,
+              left: 20,
             }}
-            domain={[0, 200]}
-          />
-          <YAxis
-            yAxisId="bar"
-            orientation="right"
-            label={{
-              value: "bar",
-              angle: 0,
-              position: "insideRight",
-              offset: -25,
-            }}
-          />
-          <Tooltip />
-          <Legend />
-          <Area
-            yAxisId="area"
-            type="monotone"
-            dataKey="value_area"
-            fill="#666"
-            stroke="#666"
-          />
-          <Bar yAxisId="bar" dataKey="value_bar" barSize={20} fill="#999" />
-        </ComposedChart>
-      </ResponsiveContainer>
-    </ChartContainer>
+          >
+            <CartesianGrid stroke="#f5f5f5" />
+            <XAxis
+              dataKey="time"
+              label={{
+                value: date,
+                position: "insideBottomLeft",
+                offset: -15,
+              }}
+              scale="band"
+            />
+            <YAxis
+              yAxisId="area"
+              orientation="left"
+              label={{
+                value: "area",
+                angle: 0,
+                position: "insideLeft",
+                offset: -15,
+              }}
+              domain={[0, 200]}
+              stroke="#999"
+            />
+            <YAxis
+              yAxisId="bar"
+              orientation="right"
+              label={{
+                value: "bar",
+                angle: 0,
+                position: "insideRight",
+                offset: -25,
+              }}
+              stroke="#999"
+            />
+            <Tooltip />
+            <Legend />
+            <Bar
+              yAxisId="bar"
+              dataKey={BAR_KEY}
+              barSize={15}
+              fill="#7BA68A"
+              onClick={(data) => setActiveFilter(data.id)}
+            >
+              {data?.map((entry, index) => {
+                const fillColor =
+                  entry.id === activeFilter ? "#5E805E" : "#7BA68A";
+                return <Cell key={`cell-${index}`} fill={fillColor} />;
+              })}
+            </Bar>
+            <Area
+              yAxisId="area"
+              type="monotone"
+              dataKey={AREA_KEY}
+              fill="#F2A03D"
+              stroke="#F2A03D"
+            />
+          </ComposedChart>
+        </ResponsiveContainer>
+      </ChartContainer>
+    </>
   );
 };
 
