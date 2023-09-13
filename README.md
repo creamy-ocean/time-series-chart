@@ -1,11 +1,13 @@
 # Time Series Chart
 
 > 원티드 프리온보딩 4주차 과제
-> <br/>
+
+<br/>
 
 ## 프로젝트 소개
 
 주어진 데이터를 활용해 시계열 차트를 구현한 프로젝트
+<br/>
 <br/>
 
 ## 실행 화면
@@ -18,6 +20,7 @@
 
 - 배포 링크: https://co-time-series-chart.netlify.app
   <br/>
+  <br/>
 
 ## 로컬 실행 방법
 
@@ -27,13 +30,13 @@
 $ git clone https://github.com/creamy-ocean/time-series-chart
 ```
 
-3. 의존성 패키지를 설치합니다.
+2. 의존성 패키지를 설치합니다.
 
 ```bash
 npm install
 ```
 
-4. 개발 서버를 실행합니다.
+3. 개발 서버를 실행합니다.
 
 ```bash
 npm start
@@ -43,7 +46,8 @@ npm start
 
 ## 구현 기능
 
-- Recharts 라이브러리를 이용한 시계열 차트
+- Recharts 라이브러리를 이용해 구현한 시계열 차트
+  - bar, area 복합 차트 구현
 - 차트 하이라이트 기능
   - 필터링 버튼을 클릭하면 동일한 값을 가진 차트만 하이라이트 되는 기능
   - 차트 클릭 시 동일한 값을 가진 차트만 하이라이트 되는 기능
