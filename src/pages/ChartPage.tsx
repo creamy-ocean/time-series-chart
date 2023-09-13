@@ -7,7 +7,7 @@ const ChartPage = () => {
 
   return (
     <>
-      <Filter setActiveFilter={setActiveFilter} />
+      <Filter activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       <Chart activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
     </>
   );
