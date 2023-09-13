@@ -15,6 +15,24 @@ import styled from "styled-components";
 import dataApi from "../api/dataApi";
 import { AREA_KEY, BAR_KEY } from "../consts/consts";
 
+interface TooltipProps {
+  active: boolean;
+  payload: any;
+}
+
+const CustomTooltip = ({ active, payload }: TooltipProps) => {
+  if (active && payload && payload.length) {
+    return (
+      <TooltipBox>
+        <p>{`id: ${payload[0].payload.id}`}</p>
+        <p>{`${BAR_KEY}: ${payload[0].payload[BAR_KEY]}`}</p>
+        <p>{`${AREA_KEY}: ${payload[0].payload[AREA_KEY]}`}</p>
+      </TooltipBox>
+    );
+  }
+  return null;
+};
+
 const ChartPage = () => {
   const [date, setDate] = useState<string>();
   const [data, setData] = useState<
@@ -98,7 +116,7 @@ const ChartPage = () => {
               }}
               stroke="#999"
             />
-            <Tooltip />
+            <Tooltip content={<CustomTooltip active={false} payload={[]} />} />
             <Legend />
             <Bar
               yAxisId="bar"
@@ -133,4 +151,13 @@ const ChartContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 5rem;
+`;
+
+const TooltipBox = styled.div`
+  padding: 0.25rem 0.5rem;
+  background-color: #fff;
+  opacity: 0.9;
+  p {
+    margin: 0.25rem;
+  }
 `;
