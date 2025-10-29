@@ -1,29 +1,32 @@
 # Time Series Chart
 
+<!--
 > 원티드 프리온보딩 4주차 과제
->
-> Wanted Pre-Onboarding Week 4 Assignment
+>-->
+> Wanted Frontend Pre-Onboarding Week 4 Assignment
 
 <br/>
 
-## 프로젝트 소개 (Project Overview)
+## Project Overview
 
-- 주어진 데이터를 활용해 시계열 차트를 구현한 프로젝트
-- A project implementing a time series chart using the provided dataset.
+<!--- 주어진 데이터를 활용해 시계열 차트를 구현한 프로젝트-->
+A time series data visualization project with interactive filtering and combined chart types.
 
 <br/>
 
-## 실행 화면 (Preview)
+## Live Demo
 
-![image](https://github.com/creamy-ocean/time-series-chart/assets/93719660/5afce9f9-6463-4d1c-945b-8da1582b0ff5)
+https://co-time-series-chart.netlify.app
+<br/>
 <br/>
 
-## 배포 링크 (Deployment Link)
 
-- 배포 링크: https://co-time-series-chart.netlify.app
-  <br/>
-  <br/>
+## Preview
 
+<img width="760" alt="Preview Screenshot" src="https://github.com/user-attachments/assets/de50f3c9-2026-4e58-b42b-af4490d4be5b" />
+<br/>
+
+<!--
 ## 로컬 실행 방법
 
 1. 본 repository를 clone 합니다.
@@ -44,24 +47,35 @@ npm install
 npm start
 ```
 
-<br/>
+<br/>-->
 
-## 구현 기능 (Features)
+---
 
+## Features
+
+<!--
 - Recharts 라이브러리를 이용해 구현한 시계열 차트
   - bar, area 복합 차트 구현
 - 차트 하이라이트 기능
   - 필터링 버튼을 클릭하면 동일한 값을 가진 차트만 하이라이트 되는 기능
-  - 차트 클릭 시 동일한 값을 가진 차트만 하이라이트 되는 기능
-- Time Series Chart implemented with the Recharts library.
-  - Combined bar and area charts.
-- Chart Highlighting
-  - Filters and highlights charts with the same value when a filter button is clicked.
-  - Highlights only the charts with the same value when a chart is clicked.
+  - 차트 클릭 시 동일한 값을 가진 차트만 하이라이트 되는 기능-->
+  
+### Combined Chart Visualization
+- Bar and area charts displayed together using Recharts library
+
+### Interactive Location Filtering
+- Click on filter buttons or chart elements to highlight data by location
+- Highlight selected location across all charts
+<img width="760" alt="Location Filtered" src="https://github.com/user-attachments/assets/29aff3eb-9e86-4f9d-841b-35d0a0858b2b" />
+
+### Information Tooltip
+- Displays detailed information on hover with id, bar chart value, and area chart value
+<img width="760" alt="Tooltip Showing" src="https://github.com/user-attachments/assets/5f06c732-e8c3-42a0-a4c5-2c7ab533efee" />
+
 
 <br/>
 
-## 기술 스택 (Tech Stack)
+## Tech Stack
 
 <div>
   <img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=white">
